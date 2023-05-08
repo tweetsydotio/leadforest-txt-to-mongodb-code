@@ -1,11 +1,11 @@
-const input = './Hits (3).txt';
-const outputPrefix = './data/hits3/smallfile';
+const input = './Hits (8).txt';
+const outputPrefix = './data/hits8/smallfile';
 
 const readline = require('readline');
 const fs = require('fs');
 
 
-const batchSize = 1000000; // number of lines per output file
+const batchSize = 1000000; // number of lines per output file - 1m data per batch
 let counter = 0;
 let batchCounter = 1;
 

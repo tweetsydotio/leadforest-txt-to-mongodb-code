@@ -1,4 +1,4 @@
-const inputFilePath = './data/hits3/smallfile-2.txt'
+const inputFilePath = './data/hits8/smallfile-4.txt'
 
 const readline = require('readline');
 const fs = require('fs');
@@ -42,7 +42,7 @@ async function insertBatch(batch) {
   try {
     await client.connect();
     const db = client.db('twitter_data');
-    const collection = db.collection('test_users_twitter');
+    const collection = db.collection('twitter_users');
 
     // create index on screenName field
     await collection.createIndex({ screenName: 1 });
@@ -51,6 +51,8 @@ async function insertBatch(batch) {
     // insert batch
     rese = await collection.insertMany(batch, { unique : true } );
     console.log('inserted batch', batch.length,'=', rese.insertedCount)
+  }catch(err){
+    console.log('err occured')
   } finally {
     await client.close();
   }
